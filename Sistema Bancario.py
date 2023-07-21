@@ -23,44 +23,45 @@ while True:
         if deposito > 0:
             saldo = saldo + deposito
             extrato += f"Deposito: R${deposito:.2f}\n"
-            print(f"Deposito no valor de R${deposito:.2f} realizado com sucesso!\n")
+            print(f"Deposito no valor de R${deposito:.2f} realizado com sucesso !\n")
             numero_operacoes += 1
 
         else:
-            print("Valor inválido!")
+            print("Valor inválido !")
 
     elif opcao == "s":
         saque = float(input("Valor do saque: \n=> "))
 
         if saque > limite:
-            print("Saque maior que o limite permitido!\n")
+            print("Saque maior que o limite permitido !\n")
 
         elif saque <= 0:
-            print("Valor abaixo do mínimo, impossivel realizar a transfência!\n")
+            print("Valor abaixo do mínimo, impossivel realizar a transfência !\n")
 
         elif numero_saques >= limite_saques:
-            print("limite de saques excedido\n")
+            print("Limite de saques excedido !\n")
 
         elif saque > saldo:
-            print("você não possui saldo")
+            print("Você não saldo suficiente !")
 
         else:
             saldo = saldo - saque
-            print(f"\nSaque de R${saque:.2f} realizado com sucesso!\n")
+            print(f"\nSaque de R${saque:.2f} realizado com sucesso !\n")
             extrato += f"Saque: R${saque:.2f}\n"
-            numero_saques += 1
-            numero_operacoes += 1
+            numero_saques = numero_saques + 1
+            numero_operacoes = numero_operacoes + 1
 
     elif opcao == "e":
         if numero_operacoes > 0:
-            print(f"Extrato bancario: \nSaldo: R${saldo}\n{extrato}")
+            print(f"""Extrato bancario:
+            \nSaldo: R${saldo}\n{extrato}""")
 
         else:
             print(f"""Extrato bancario: \nSaldo: R${saldo}
-            \nNenhuma operação foi realizada nesta conta até o momento!""")
+            \nNenhuma operação foi realizada nesta conta até o momento !""")
 
     elif opcao == "q":
         break
 
     else:
-        print("Opção invalida! ")
+        print("Operação Invalida !")
